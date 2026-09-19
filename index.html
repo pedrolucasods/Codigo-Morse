@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Text to Morse</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container-translate">
+            <div class="content-text-area">
+                <div class="infos">
+                    <h2>Text</h2>
+                    <div class="labels">
+                        <label for="" class="label">SOS</label>
+                        <label for="" class="label">Hello Word</label>
+                        <label for="" class="label">Paris</label>
+                    </div>
+                </div>
+                <div class="insert-text">
+                    <textarea name="" id="text-field"></textarea>
+                </div>
+            </div>
+            <button id="btn_translate">Test</button>
+            <div class="content-text-area">
+                <div class="infos">
+                    <h2>Morse Code</h2>
+                </div>
+                <div class="response-info">
+                    <textarea name="" id="response-field" readonly></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="btn_actions">
+            <div class="btn_list">
+                <button class="btn activate">Play</button>
+                <button class="btn">Repeat</button>
+                <button class="btn activate">Sound</button>
+                <button class="btn activate">Light</button>
+                <button class="btn">Vibrate</button>
+            </div>
+            <div class="btn_list">
+                <button class="btn">Copy</button>
+                <button class="btn">Share</button>
+                <button class="btn">TXT</button>
+                <button class="btn">Random</button>
+                <button class="btn">Clear</button>
+                <div class="special-btn">
+                    <div class="around-circle">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="anothers-infos">
+                        <h3>Ready</h3>
+                        <p>7.4 s .18 wpm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js" defer></script>
+</html>
