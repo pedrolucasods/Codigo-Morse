@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const textField = document.getElementById('text-field')
     const responseField = document.getElementById('response-field')
+
+    document.querySelectorAll('input[type="range"]').forEach((range) => {
+        const updateRangeFill = () => {
+            const min = Number(range.min) || 0
+            const max = Number(range.max) || 100
+            const value = Number(range.value) || 0
+            const percent = ((value - min) / (max - min)) * 100
+            range.style.setProperty('--value', `${percent}%`)
+        }
+
+        range.addEventListener('input', updateRangeFill)
+        updateRangeFill()
+    })
+
     textField.addEventListener('input',async ()=>{
         if(textField.value){
             responseField.value = ''
