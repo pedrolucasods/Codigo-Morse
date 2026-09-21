@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
 body{
     padding: 30px;
 }
@@ -190,6 +195,8 @@ input[type="range"]::-moz-range-thumb {
     justify-content: space-between;
     width: 100%;
     padding-top: 20px;
+    border-bottom: 1px solid #23322B;
+    padding-bottom: 20px;
 }
 
 .config{
@@ -210,4 +217,100 @@ input[type="range"]::-moz-range-thumb {
 
 .label-config h5{
     color: #90C835;
+}
+
+.frequency{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #23322B;
+}
+
+.frequency-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.explain{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-dit{
+    display: grid;
+    height: 7px;
+    width: 7px;
+    background-color: #9EE637;
+    border-radius: 1px;
+}
+
+
+.item-dah{
+    display: grid;
+    height: 7px;
+    width: 17px;
+    background-color: #5FA50D;
+    border-radius: 1px;
+}
+
+.item-silence{
+    display: grid;
+    height: 7px;
+    width: 14px;
+    background-color: #334039;
+    border-radius: 1px;
+}
+
+
+.timeline-frequency{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    background-color: #0A140E;
+    border-radius: 20px;
+}
+
+.frequency-elements{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: clamp(1px, 1vw, 8px);
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.dit{
+    height: 40%;
+    width: 1.3vw;
+    min-width: 1px;
+    flex: 0. 1 1.3vw;
+    background: linear-gradient(180deg, #92DC3B 0%, #07804D 100%);
+}
+
+.dah{
+    height: 70%;
+    width: 3.5vw;
+    min-width: 5px;
+    flex: 0.1 1 3.5vw;
+    background: linear-gradient(180deg, #92DC3B 0%, #07804D 100%);
+}
+
+.silence{
+    background: none;
+    height: 100%;
+    width: 4.5vw;
+    min-width: 7px;
+    flex: 0 1 4.5vw;
 }
