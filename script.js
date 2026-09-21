@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             const value = Number(range.value) || 0
             const percent = ((value - min) / (max - min)) * 100
             range.style.setProperty('--value', `${percent}%`)
+            show_values_input_range()
         }
 
         range.addEventListener('input', updateRangeFill)
@@ -22,10 +23,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             responseField.value += letter
         }else{
             responseField.value = ''
-        }
-
-        
+        }        
     })
+
 })
 
 function translate(){
@@ -57,4 +57,17 @@ function translate(){
 
     return response_text
 
+}
+
+function show_values_input_range(){
+    const input_speed = document.getElementById('input-speed')
+    const input_tone = document.getElementById('input-tone')
+    const input_volume = document.getElementById('input-volume')
+
+    const h5_speed = document.getElementById('value-speed')
+    h5_speed.textContent = `${input_speed.value} WPM`
+    const h5_tone = document.getElementById('value-tone')
+    h5_tone.textContent = `${input_tone.value}Hz`
+    const h5_volume = document.getElementById('value-volume')
+    h5_volume.textContent = `${input_volume.value}%`
 }
