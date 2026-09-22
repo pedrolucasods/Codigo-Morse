@@ -17,10 +17,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
 
     textField.addEventListener('input',async ()=>{
+        let frequency_elements = document.querySelector('.frequency-elements')
+        frequency_elements.replaceChildren()
         if(textField.value){
             responseField.value = ''
             const letter = translate()
             responseField.value += letter
+            create_frequency(responseField.value)
         }else{
             responseField.value = ''
         }        
@@ -71,3 +74,44 @@ function show_values_input_range(){
     const h5_volume = document.getElementById('value-volume')
     h5_volume.textContent = `${input_volume.value}%`
 }
+
+
+function create_frequency(text_morse){
+    let frequency_elements = document.querySelector('.frequency-elements')
+    for(const caracter of text_morse){
+        let element_freq = document.createElement('div')
+        if(caracter == '.'){
+            element_freq.classList.add('dit')
+        }else if(caracter == '-'){
+            element_freq.classList.add('dah')
+        }else if(caracter == '/'){
+            element_freq.classList.add('silence')
+        }
+        frequency_elements.appendChild(element_freq)
+    }
+    resize_frequency()
+}
+
+function resize_frequency(){
+    const frequencyElements = document.querySelector('.frequency-elements')
+    const availableWidth = frequencyElements.clientWidth - 10
+    const gapWidth = 6
+    const baseWidths = {
+        dit: window.innerWidth * 0.013,
+        dah: window.innerWidth * 0.035,
+        silence: window.innerWidth * 0.045
+    }
+    const elementsWidth = [...frequencyElements.children].reduce((total, element) => {
+        return total + baseWidths[element.className]
+    }, 0)
+    const gapsWidth = Math.max(frequencyElements.children.length - 1, 0) * gapWidth
+    const totalWidth = elementsWidth + gapsWidth
+    const scale = totalWidth > availableWidth ? availableWidth / totalWidth : 1
+
+    frequencyElements.style.setProperty('--frequency-gap', `${gapWidth * scale}px`)
+    frequencyElements.style.setProperty('--dit-width', `${baseWidths.dit * scale}px`)
+    frequencyElements.style.setProperty('--dah-width', `${baseWidths.dah * scale}px`)
+    frequencyElements.style.setProperty('--silence-width', `${baseWidths.silence * scale}px`)
+}
+
+window.addEventListener('resize', resize_frequency)
